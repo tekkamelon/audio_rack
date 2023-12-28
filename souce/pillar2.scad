@@ -20,6 +20,12 @@ module target(){
 
 module tool(){
 
+	translate([0, 0, 20]){
+
+		cylinder(h=3, r1=5.2-3, r2=8.2-3);
+
+	}
+
 	translate([0, 0, 23]){
 
 		cylinder(h=10, r=5.2);
@@ -29,9 +35,9 @@ module tool(){
 }
 difference(){
 
-	target();
+	%target();
 
-	tool();
+	#tool();
 
 }
 
