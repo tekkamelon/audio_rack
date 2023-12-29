@@ -38,7 +38,7 @@ module screw_hole(){
 // 支柱用の穴
 module pillar_hole(){
 
-	for(i=[-140/2, 140/2], j=[-118/2, 118/2]){
+	for(i=[-130/2, 130/2], j=[-108/2, 108/2]){
 
 		translate([i, j, -5]){
 
@@ -56,7 +56,7 @@ module pillar_hole(){
 difference(){
 
 	// 棚板
-	cube([160, 138, 5], center=true);
+	cube([150, 128, 5], center=true);
 
 	screw_hole();
 
