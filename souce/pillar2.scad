@@ -35,9 +35,9 @@ module tool(){
 }
 difference(){
 
-	%target();
+	target();
 
-	#tool();
+	tool();
 
 }
 
