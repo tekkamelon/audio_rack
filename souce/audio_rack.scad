@@ -1,5 +1,12 @@
 $fn=50;
 
+board_x=150;
+board_y=128;
+
+pillar_hole_x=board_x/2-10;
+pillar_hole_y=board_y/2-10;
+
+// ------- 関数の宣言 ------
 // アンプ
 module amp(){
 
@@ -24,7 +31,7 @@ module screw_hole(){
 
 	for(i=[-63, 63], j=[-22, 22]){
 		
-		translate([i, j, -5]){
+		translate([i, j, 0]){
 		
 			cylinder(h=10, d=5.5);
 
@@ -32,15 +39,14 @@ module screw_hole(){
 
 	}
 
-
 }
 
 // 支柱用の穴
 module pillar_hole(){
 
-	for(i=[-130/2, 130/2], j=[-108/2, 108/2]){
+	for(i=[-pillar_hole_x, pillar_hole_x], j=[-pillar_hole_y, pillar_hole_y]){
 
-		translate([i, j, -5]){
+		translate([i, j, 0]){
 
 			cylinder(h=10 ,r=5);
 
@@ -49,14 +55,27 @@ module pillar_hole(){
 	}
 
 }
+// ------- 関数の宣言ここまで ------
+
 
 // 確認用のアンプ
 %amp();
 
+// 穴あけ
 difference(){
 
 	// 棚板
-	cube([150, 128, 5], center=true);
+	linear_extrude(5){
+
+		// 角丸
+		offset(r=5){
+
+			// 150*128の平面
+			square([board_x, board_y], center=true);
+
+		}
+
+	}
 
 	screw_hole();
 
