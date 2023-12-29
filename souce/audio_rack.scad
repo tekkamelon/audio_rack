@@ -33,7 +33,7 @@ module screw_hole(){
 		
 		translate([i, j, 0]){
 		
-			cylinder(h=10, d=5.5);
+			cylinder(h=10, r=5.5/2);
 
 		}
 
@@ -48,7 +48,7 @@ module pillar_hole(){
 
 		translate([i, j, 0]){
 
-			cylinder(h=10 ,r=5);
+			cylinder(h=10 ,r=5.25);
 
 		}
 
