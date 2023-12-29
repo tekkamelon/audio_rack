@@ -1,18 +1,65 @@
-//アンプの大きさに合わせてモデリング
+$fn=50;
 
-module cube_basic(tx, ty, tz, cx, cy, cz){
-	translate([tx, ty, tz]){
-		cube([cx, cy, cz], center=true);
+// アンプ
+module amp(){
+
+	// 上部
+	translate([0, 0, 22.5]){
+
+		#cube([115, 90, 40], center=true);
+
 	}
+
+	// 下部
+	translate([0, 0, 2.5]){
+
+		cube([140, 90, 1], center=true);
+	}
+
+
 }
 
-//棚板
-for(z=[0:66:66*2]){
-	cube_basic(0, 0, z, 160, 138, 2); 
+// ネジ止め用の穴
+module screw_hole(){
+
+	for(i=[-63, 63], j=[-22, 22]){
+		
+		translate([i, j, -5]){
+		
+			cylinder(h=10, d=5.5);
+
+		}
+
+	}
+
+
 }
 
-//脚部
-for(tx=[-145/2:145:145/2], ty=[-123/2:123:123/2], tz=[33:33:99]){
-	color([0, 0.5, 0])
-	cube_basic(tx, ty, tz, 15, 15, 66-2); 
+// 支柱用の穴
+module pillar_hole(){
+
+	for(i=[-140/2, 140/2], j=[-118/2, 118/2]){
+
+		translate([i, j, -5]){
+
+			cylinder(h=10 ,r=5);
+
+		}
+
+	}
+
+}
+
+// 確認用のアンプ
+%amp();
+
+difference(){
+
+	// 棚板
+	cube([160, 138, 5], center=true);
+
+	screw_hole();
+
+	pillar_hole();
+
 }
