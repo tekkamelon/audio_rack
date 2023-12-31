@@ -29,7 +29,8 @@ module amp(){
 // ネジ止め用の穴
 module screw_hole(){
 
-	for(i=[-63, 63], j=[-22, 22]){
+	// i=x軸,j=y軸
+	for(i=[-65, 65], j=[-22, 22]){
 		
 		translate([i, j, 0]){
 		
@@ -44,6 +45,7 @@ module screw_hole(){
 // 支柱用の穴
 module pillar_hole(){
 
+	// i=x軸,j=y軸
 	for(i=[-pillar_hole_x, pillar_hole_x], j=[-pillar_hole_y, pillar_hole_y]){
 
 		translate([i, j, 0]){
@@ -82,3 +84,4 @@ difference(){
 	pillar_hole();
 
 }
+
