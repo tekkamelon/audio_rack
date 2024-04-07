@@ -42,6 +42,22 @@ module screw_hole(){
 
 }
 
+// 肉抜き穴
+module hole(){
+
+	// i=x軸,j=y軸
+	for(i=[-50:10:50], j=[-40:10:40]){
+
+		translate([i, j, 5]){
+
+			#cube([5, 5, 10], center=true);
+
+		}
+
+	}
+
+}
+
 // 支柱用の穴
 module pillar_hole(){
 
@@ -83,5 +99,6 @@ difference(){
 
 	pillar_hole();
 
+	hole();
 }
 
