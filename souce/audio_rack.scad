@@ -30,7 +30,7 @@ module amp(){
 module screw_hole(){
 
 	// i=x軸,j=y軸
-	for(i=[-65, 65], j=[-22, 22]){
+	for(i=[-70, 70], j=[-22, 22]){
 		
 		translate([i, j, 0]){
 		
